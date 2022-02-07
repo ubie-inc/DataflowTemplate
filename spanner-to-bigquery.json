@@ -1,0 +1,26 @@
+{
+  "sources": [
+    {
+      "name": "spanner",
+      "module": "spanner",
+      "parameters": {
+        "projectId": "ubie-yu-sandbox",
+        "instanceId": "test-etl",
+        "databaseId": "test-db",
+        "query": "SELECT * EXCEPT(JsonClm) FROM TestTable1"
+      }
+    }
+  ],
+  "sinks": [
+    {
+      "name": "bigquery",
+      "module": "bigquery",
+      "input": "spanner",
+      "parameters": {
+        "table": "ubie-yu-sandbox:test_in_tokyo.spanner_to_bigquery_by_dataflow",
+        "createDisposition": "CREATE_IF_NEEDED",
+        "writeDisposition": "WRITE_TRUNCATE"
+      }
+    }
+  ]
+}
