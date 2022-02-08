@@ -7,7 +7,7 @@
         "projectId": "ubie-yu-sandbox",
         "instanceId": "test-etl",
         "databaseId": "test-db",
-        "query": "SELECT * EXCEPT(JsonClm, NumericClm, ArrayNumericClm) FROM TestTable1"
+        "query": "SELECT ArrayTimestampClm FROM TestTable1"
       }
     }
   ],
@@ -17,7 +17,7 @@
       "module": "bigquery",
       "input": "spanner",
       "parameters": {
-        "table": "ubie-yu-sandbox:test_in_tokyo.spanner_to_bigquery_by_dataflow",
+        "table": "ubie-yu-sandbox:test_in_tokyo.spanner2bq_arraytimestampclm",
         "createDisposition": "CREATE_IF_NEEDED",
         "writeDisposition": "WRITE_TRUNCATE"
       }
